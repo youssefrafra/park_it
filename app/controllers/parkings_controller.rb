@@ -36,12 +36,14 @@ class ParkingsController < ApplicationController
   def destroy
     @parking = Parking.find(params[:id])
     @parking.destroy
-    redirect_to parkings_path
+    redirect_to my_parkings_path
   end
 
   def pause
+    # raise
     @parking = Parking.find(params[:id])
-    @parking.pause = !@parking.pause
+    @parking.update(available: !@parking.available)
+    redirect_to my_parkings_path
   end
 
   private
