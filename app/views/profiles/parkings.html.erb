@@ -1,0 +1,27 @@
+<div class="container">
+    <h1>My parkings</h1>
+    <br/>
+    <%= link_to  "Add parking", new_parking_path, class:"btn btn-success mb-3" %>
+    <div class="row">
+    <% @parkings.each do |parking| %>
+        <div class="col-6">
+            <div class="card mb-3">
+                <img src="..." class="card-img-top" alt="...">
+                <div class="card-body">
+                    <h5 class="card-title"><%= parking.description %></h5>
+                    <p class="card-text"><%= parking.address %></p>
+                    <div class="d-flex justify-content-between">
+                        <%= link_to "Show more", parking_path(parking), class:"btn btn-primary" %>
+                        <% if parking.available %>
+                            <%= link_to "Pause", pause_parking_path(parking),method: :patch, class:"btn btn-success" %>
+                        <%else%>
+                            <%= link_to "Unpause", pause_parking_path(parking),method: :patch, class:"btn btn-dark" %>
+                        <%end%>
+                        <%= link_to "Delete", parking_path(parking), method: :delete, class:"btn btn-danger" %>
+                    </div>
+                </div>
+            </div>
+        </div>
+    <% end %>
+    </div>
+</div>

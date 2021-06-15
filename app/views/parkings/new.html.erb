@@ -1,0 +1,11 @@
+<div class="container">
+    <%= simple_form_for @parking do |f| %>
+        <%= f.input :address%>
+        <%= f.input :description%>
+        <%= f.input :start_date%>
+        <%= f.input :end_date%>
+        <%= f.input :from_hour%>
+        <%= f.input :to_hour%>
+        <%= f.submit class:"btn btn-success"%>
+    <% end %>
+</div>
