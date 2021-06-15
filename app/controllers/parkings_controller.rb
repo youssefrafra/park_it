@@ -17,8 +17,8 @@ class ParkingsController < ApplicationController
     @parking = Parking.new(parking_params)
     @parking.user = current_user
 
-    if @parking.save
-      redirect_to parking_path(parking_params)
+    if @parking.save!
+      redirect_to parking_path(@parking)
     else
       render :new
     end
@@ -36,6 +36,7 @@ class ParkingsController < ApplicationController
   def destroy
     @parking = Parking.find(params[:id])
     @parking.destroy
+    redirect_to parkings_path
   end
 
   def pause

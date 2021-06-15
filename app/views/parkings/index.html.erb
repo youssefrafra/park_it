@@ -1,5 +1,20 @@
-<h1>All parkings</h1>
-
-<% @parkings.each do |parking| %>
-<p><%= parking.description %></p>
-<% end %>
+<div class="container">
+    <h1>All parkings</h1>
+    <div class="row">
+    <% @parkings.each do |parking| %>
+        <div class="col-6">
+            <div class="card mb-3">
+                <img src="..." class="card-img-top" alt="...">
+                <div class="card-body">
+                    <h5 class="card-title"><%= parking.description %></h5>
+                    <p class="card-text"><%= parking.address %></p>
+                    <div class="d-flex justify-content-between">
+                        <%= link_to "Show more", parking_path(parking), class:"btn btn-primary" %>
+                        <%= link_to "Delete", parking_path(parking), method: :delete, class:"btn btn-danger" %>
+                    </div>
+                </div>
+            </div>
+        </div>
+    <% end %>
+    </div>
+</div>
