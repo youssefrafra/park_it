@@ -1,6 +1,11 @@
-<div class="banner" style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url(https://c1.wallpaperflare.com/preview/579/910/576/old-gate-old-garage-wooden-door-wooden-gate.jpg)";>
-  <h1>TITLE</h1>
-    <div class="search-container d-flex justify-content-around">
+<div class="banner" style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url(https://c1.wallpaperflare.com/preview/579/910/576/old-gate-old-garage-wooden-door-wooden-gate.jpg);
+                           background-size: cover;
+                           background-position: center;">
+   <div class="d-flex justify-content-center mb-4">
+    <h1>Welcome <%= current_user.first_name.capitalize if(user_signed_in?)%></h1>
+   </div>
+  <% console %>
+    <div class="search-container d-flex justify-content-center">
       <div class="search">
         <input type="text" placeholder="Search.." name="search">
           <button class="btn btn-success" type="submit">Submit</button>
