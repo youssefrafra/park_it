@@ -10,10 +10,38 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_06_14_152014) do
+ActiveRecord::Schema.define(version: 2021_06_15_080859) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "bookings", force: :cascade do |t|
+    t.bigint "user_id", null: false
+    t.bigint "parking_id", null: false
+    t.string "status"
+    t.date "start_date"
+    t.date "end_date"
+    t.time "from_hour"
+    t.time "to_hour"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["parking_id"], name: "index_bookings_on_parking_id"
+    t.index ["user_id"], name: "index_bookings_on_user_id"
+  end
+
+  create_table "parkings", force: :cascade do |t|
+    t.bigint "user_id", null: false
+    t.string "address"
+    t.string "description"
+    t.date "start_date"
+    t.date "end_date"
+    t.time "from_hour"
+    t.time "to_hour"
+    t.boolean "available"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["user_id"], name: "index_parkings_on_user_id"
+  end
 
   create_table "users", force: :cascade do |t|
     t.string "email", default: "", null: false
@@ -30,4 +58,7 @@ ActiveRecord::Schema.define(version: 2021_06_14_152014) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
+  add_foreign_key "bookings", "parkings"
+  add_foreign_key "bookings", "users"
+  add_foreign_key "parkings", "users"
 end
