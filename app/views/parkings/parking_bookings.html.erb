@@ -1,0 +1,21 @@
+<div class="container">
+    <h1>Bookings</h1>
+    <br/>
+    <%= link_to  "Back", my_parkings_path, class:"btn btn-dark mb-2" %>
+    <div class="row">
+    <% @bookings.each do |booking| %>
+        <div class="col-6">
+            <div class="card mb-3">
+                <div class="card-body">
+                    <h5 class="card-title"><%= booking.parking.description %></h5>
+                    <p class="card-text"><%= booking.parking.address %></p>
+                    <div class="d-flex justify-content-between">
+                        <%= link_to "Accept",accept_booking_path(booking),method: :patch, class:"btn btn-success" %>
+                        <%= link_to "Refuse", "#", class:"btn btn-danger" %>
+                    </div>
+                </div>
+            </div>
+        </div>
+    <% end %>
+    </div>
+</div>

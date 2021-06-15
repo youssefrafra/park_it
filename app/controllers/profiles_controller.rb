@@ -8,4 +8,5 @@ class ProfilesController < ApplicationController
     @user = current_user
     @bookings = Booking.where(user: @user)
   end
+
 end

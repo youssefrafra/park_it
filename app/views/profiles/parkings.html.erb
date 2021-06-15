@@ -11,7 +11,7 @@
                     <h5 class="card-title"><%= parking.description %></h5>
                     <p class="card-text"><%= parking.address %></p>
                     <div class="d-flex justify-content-between">
-                        <%= link_to "Show more", parking_path(parking), class:"btn btn-primary" %>
+                        <%= link_to "Show bookings", parking_bookings_parking_path(parking), class:"btn btn-primary" %>
                         <% if parking.available %>
                             <%= link_to "Pause", pause_parking_path(parking),method: :patch, class:"btn btn-success" %>
                         <%else%>
