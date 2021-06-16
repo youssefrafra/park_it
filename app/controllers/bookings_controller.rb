@@ -27,7 +27,7 @@ class BookingsController < ApplicationController
   def accept
     @booking = Booking.find(params[:id])
     @booking.update(status:"accepted")
-    redirect_to 
+    redirect_to parking_bookings_parking_path(@booking.parking) 
   end
 
   def decline
