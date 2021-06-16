@@ -32,21 +32,22 @@ class ParkingsController < ApplicationController
 
   def edit
     @parking = Parking.find(params[:id])
+    render "parkings/show" unless @parking.user == current_user
   end
 
   def update
     @parking = Parking.find(params[:id])
     @parking.update(parking_params)
+    redirect_to my_parkings_path, notice: "Successfully Updated"
   end
 
   def destroy
     @parking = Parking.find(params[:id])
     @parking.destroy
-    redirect_to my_parkings_path
+    redirect_to my_parkings_path, notice: "Successfully Deleted"
   end
 
   def pause
-    # raise
     @parking = Parking.find(params[:id])
     @parking.update(available: !@parking.available)
     @parking.bookings.destroy_all
