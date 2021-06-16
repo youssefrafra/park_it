@@ -8,6 +8,14 @@ class ParkingsController < ApplicationController
 
   def index
     @parkings = Parking.all
+    @markers = @parkings.geocoded.map do |parking|
+      {
+        lat: parking.latitude,
+        lng: parking.longitude,
+        info_window: render_to_string(partial: "info_window", locals: { parking: parking }),
+        image_url: helpers.asset_url('/assets/images/cone.png')
+      }
+    end
   end
 
   def show

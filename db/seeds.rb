@@ -13,10 +13,10 @@ user1 = User.create!(first_name: "Jean", last_name: "Labas", password: "azerty",
 user2 = User.create!(first_name: "Chris", last_name: "Ici", password: "azerty", email: "Chris@email.com", phone_number: "07.07.07.07.07")
 user3 = User.create!(first_name: "Youssef", last_name: "MVP", password: "azerty", email: "YMVP@email.com", phone_number: "08.08.08.08.08")
 
-parking1 = Parking.new(title:"Un titre" ,address: "2 rue de Lille", description: "Pour grosse voiture",start_date: Date.new(2021,06,23), end_date: Date.new(2021,06,25), from_hour: Time.now, to_hour: Time.now, available: true)
-parking2 = Parking.new(title:"Un titre" ,address: "15 rue de Strasbourg", description: "Pour petite voiture", start_date: Date.new(2021,07,02), end_date: Date.new(2021,07,05), from_hour: Time.now, to_hour: Time.now, available: true)
-parking3 = Parking.new(title:"Un titre" ,address: "56 rue de de la barre", description: "Pour voiture rouge", start_date: Date.new(2021,01,01), end_date: Date.new(2021,01,20), from_hour: Time.now, to_hour: Time.now, available: true)
-parking4 = Parking.new(title:"Un titre" ,address: "654 boulevard de Là", description: "Pour 4 motos", start_date: Date.new(2021,03,16), end_date: Date.new(2021,03,17), from_hour: Time.now, to_hour: Time.now, available: true)
+parking1 = Parking.new(title:"Un titre" ,address: "34 rue des bouchers, Lille", description: "Pour grosse voiture",start_date: Date.new(2021,06,23), end_date: Date.new(2021,06,25), from_hour: Time.now, to_hour: Time.now, available: true)
+parking2 = Parking.new(title:"Un titre" ,address: "15 rue du congo, mouvaux", description: "Pour petite voiture", start_date: Date.new(2021,07,02), end_date: Date.new(2021,07,05), from_hour: Time.now, to_hour: Time.now, available: true)
+parking3 = Parking.new(title:"Un titre" ,address: "56 rue de la barre, lille", description: "Pour voiture rouge", start_date: Date.new(2021,01,01), end_date: Date.new(2021,01,20), from_hour: Time.now, to_hour: Time.now, available: true)
+parking4 = Parking.new(title:"Un titre" ,address: "465 Littoral Frédéric Mistral, Toulon", description: "Pour 4 motos", start_date: Date.new(2021,03,16), end_date: Date.new(2021,03,17), from_hour: Time.now, to_hour: Time.now, available: true)
 
 parking1.user = user1
 parking2.user = user1
