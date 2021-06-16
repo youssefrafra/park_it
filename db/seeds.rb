@@ -6,6 +6,21 @@
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
 
+require "open-uri"
+
+file = URI.open('https://unsplash.com/photos/DvTUnx7OOuo')
+parkingspot1 = Parking.new(title:"Un titre" ,address: "2 rue de Lille", description: "Pour grosse voiture",start_date: Date.new(2021,06,23), end_date: Date.new(2021,06,25), from_hour: Time.now, to_hour: Time.now, available: true)
+parkingspot1.photo.attach(io: file, filename: 'parkingspot1.png', content_type: 'image/png')
+
+file = URI.open('https://unsplash.com/photos/TrvLsDu4sHk')
+parkingspot2 = Parking.new(title:"Un titre" ,address: "3 rue de Lille", description: "Pour grosse voiture",start_date: Date.new(2021,06,23), end_date: Date.new(2021,06,25), from_hour: Time.now, to_hour: Time.now, available: true)
+parkingspot2.photo.attach(io: file, filename: 'parkingspot2.png', content_type: 'image/png')
+
+file = URI.open('https://unsplash.com/photos/jeQz9ULm8iE')
+parkingspot3 = Parking.new(title:"Un titre" ,address: "4 rue de Lille", description: "Pour grosse voiture",start_date: Date.new(2021,06,23), end_date: Date.new(2021,06,25), from_hour: Time.now, to_hour: Time.now, available: true)
+parkingspot3.photo.attach(io: file, filename: 'parkingspot3.png', content_type: 'image/png')
+
+
 User.destroy_all if Rails.env.development?
 Parking.destroy_all if Rails.env.development?
 
@@ -27,4 +42,3 @@ parking1.save!
 parking2.save!
 parking3.save!
 parking4.save!
-

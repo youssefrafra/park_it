@@ -10,8 +10,13 @@
                     <h5 class="card-title"><%= booking.parking.description %></h5>
                     <p class="card-text"><%= booking.parking.address %></p>
                     <div class="d-flex justify-content-between">
-                        <%= link_to "Accept",accept_booking_path(booking),method: :patch, class:"btn btn-success" %>
-                        <%= link_to "Refuse", "#", class:"btn btn-danger" %>
+                        <%if booking.status == "pending"%>
+                            <%= link_to "Accept",accept_booking_path(booking),method: :patch, class:"btn btn-success" %>
+                            <%= link_to "Refuse", "#", class:"btn btn-danger" %>
+                        <% elsif booking.status == "accepted" %>
+                            <%= button_to "Accepted","#", class:"btn btn-success", disabled: true %>
+                            <%= link_to "Cancel", booking_path(booking), method: :delete, class:"btn btn-danger" %>
+                        <%end%>
                     </div>
                 </div>
             </div>
