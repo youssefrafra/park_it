@@ -4,7 +4,7 @@
    </div>
     <div class="search-container d-flex justify-content-center">
       <div class="search">
-        <input type="text" placeholder="Search.." name="search">
+        <input type="search" id="address-input" placeholder="Where are we parking?" />
           <button class="btn btn-success" type="submit">Submit</button>
       </div>
       <div class="date">  
@@ -23,4 +23,13 @@
     <div class="mt-3">
         <%= link_to "All offers (#{Parking.count})", parkings_path, class:"btn btn-success" %>
     </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/places.js@1.19.0"></script>
+  <script>
+  var placesAutocomplete = places({
+    appId: '39S0L9WP5M',
+    apiKey: '250b2bf1d63c1be858fdb3447f836035',
+    container: document.querySelector('#address-input')
+  });
+</script>
 </div>
