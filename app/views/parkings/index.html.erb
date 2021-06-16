@@ -1,8 +1,10 @@
-<div class="container">
+<div class="main-container text-center">
     <h1>All parkings</h1>
+</div>
+<div class="container-cards-map">
     <div class="row">
     <% @parkings.each do |parking| %>
-        <div class="col-6">
+        <div class="col">
             <div class="card shadow p-3 bg-white rounded mb-3">
                 <% if parking.photo.attached? %>
                     <%= cl_image_tag parking.photo.key, height: 400, class:"w-100", crop: :fill %>
@@ -21,7 +23,8 @@
     <% end %>
     </div>
     <div id="map"
-        style="width: 100%; height: 600px;"
+        style="width: 150%; height: 600px;"
         data-markers="<%= @markers.to_json %>"
-        data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>"></div>
+        data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>">
+    </div>
 </div>
