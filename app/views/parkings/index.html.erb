@@ -7,7 +7,7 @@
         <div class="col">
             <div class="card shadow p-3 bg-white rounded mb-3">
                 <% if parking.photo.attached? %>
-                    <%= cl_image_tag parking.photo.key, height: 300, width: 400, crop: :fill %>
+                    <%= cl_image_tag parking.photo.key, height: 400, class:"w-100", crop: :fill %>
                 <% else %>
                     <%= image_tag "parking-spot.jpg", alttext:"", class:"card-img-top" %>
                 <% end %>

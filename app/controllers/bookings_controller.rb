@@ -1,7 +1,7 @@
 class BookingsController < ApplicationController
   def new
     @parking = Parking.find(params[:parking_id])
-    if(@parking.user != current_user)
+    if (@parking.user != current_user)
       @booking = Booking.new
     else
       render "parkings/show"
@@ -15,7 +15,7 @@ class BookingsController < ApplicationController
     @booking.user = @user
     @booking.parking = @parking
     if @booking.save!
-      redirect_to parking_path(@parking)
+      redirect_to my_bookings_path
     else
       render 'parkings/show'
     end
