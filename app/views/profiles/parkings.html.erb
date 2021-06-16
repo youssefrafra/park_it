@@ -6,7 +6,11 @@
     <% @parkings.each do |parking| %>
         <div class="col-6">
             <div class="card mb-3">
-                <img src="..." class="card-img-top" alt="...">
+                <% if parking.photo.attached? %>
+                    <%= cl_image_tag parking.photo.key, height: 300, width: 400, crop: :fill %>
+                <% else %>
+                    <%= image_tag "parking-spot.jpg", alttext:"", class:"card-img-top" %>
+                <% end %>
                 <div class="card-body">
                     <h5 class="card-title"><%= parking.description %></h5>
                     <p class="card-text"><%= parking.address %></p>
