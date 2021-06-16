@@ -21,6 +21,7 @@
                         <%else%>
                             <%= link_to "Unpause", pause_parking_path(parking),method: :patch, class:"btn btn-dark" %>
                         <%end%>
+                        <%= link_to "Edit", edit_parking_path(parking), class:"btn btn-info" %>
                         <%= link_to "Delete", parking_path(parking), method: :delete, class:"btn btn-danger" %>
                     </div>
                 </div>
