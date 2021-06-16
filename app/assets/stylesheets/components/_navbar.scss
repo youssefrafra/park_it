@@ -1,7 +1,11 @@
 .navbar-lewagon {
   justify-content: space-between;
-  background: #eceef8;
-  padding: 0px;
+  color: white;
+  background-image:
+    linear-gradient(
+      to right, 
+      #d0c6af,#F7EFE0,white
+    );
 }
 
 .navbar-lewagon .navbar-collapse {
@@ -9,12 +13,12 @@
 }
 
 .navbar-lewagon .navbar-brand img {
-  width: 60px;
-  border-radius: 50%;
+  width: 40px;
+  object-position: center;
 }
 
 .navbar-light .navbar-nav .nav-link {
-  color: #1f2020;
+  color: black;
     &:hover {
       opacity: 0.7;
     }

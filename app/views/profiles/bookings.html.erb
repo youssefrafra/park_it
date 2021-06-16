@@ -1,3 +1,26 @@
 <div class="container">
-    
+    <h1>My bookings</h1>
+    <br/>
+    <div class="row">
+    <% @bookings.each do |booking| %>
+        <div class="col-6">
+            <div class="card mb-3">
+                <div class="card-body">
+                    <h5 class="card-title"><%= booking.parking.description %></h5>
+                    <p class="card-text"><%= booking.parking.address %></p>
+                    <div class="d-flex justify-content-between">
+                        <% if booking.status === "pending" %>
+                            <%= button_to "Pending", "#", class:"btn btn-warning", disabled: true %>
+                        <%elsif booking.status === "accepted" %>
+                            <%= button_to "Accepted","#", class:"btn btn-success", disabled: true %>
+                        <%else%>
+                            <%= button_to "Refused","#", class:"btn btn-danger", disabled: true %>
+                        <%end%>
+                        <%= link_to "Cancel", booking_path(booking), method: :delete, class:"btn btn-danger" %>
+                    </div>
+                </div>
+            </div>
+        </div>
+    <% end %>
+    </div>
 </div>

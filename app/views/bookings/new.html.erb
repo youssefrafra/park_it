@@ -1,0 +1,10 @@
+<div class="container">
+    <%= simple_form_for [@parking,@booking] do |f| %>
+        <%= f.input :start_date, start_day: @parking.start_date.day %>
+        <%= f.input :end_date %>
+        <%= f.input :from_hour, start_hour: @parking.from_hour.hour ,end_hour: @parking.to_hour.hour%>
+        <%= f.input :to_hour %>
+        <%= f.submit class:"btn btn-success"%>
+    <% end %>
+    <%= link_to "Back", parking_path(@parking), class:"btn btn-dark mt-2" %>
+</div>

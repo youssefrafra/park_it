@@ -5,16 +5,16 @@ Rails.application.routes.draw do
   resources :parkings do
     member do
       patch :pause
+      get :parking_bookings
     end
+    resources :bookings, only: [:create, :new]
   end
-
-  resources :bookings, only: [:create, :new, :destroy] do
+  resources :bookings, only: :destroy do
     member do
-      patch :accept
       patch :decline
+      patch :accept
     end
   end
-
   get "/my_parkings", to: "profiles#parkings"
   get "/my_bookings", to: "profiles#bookings"
 

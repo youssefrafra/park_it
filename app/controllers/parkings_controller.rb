@@ -1,5 +1,11 @@
 class ParkingsController < ApplicationController
-  skip_before_action :authenticate_user!, only: :index
+  skip_before_action :authenticate_user!, only: [:index, :show]
+  def parking_bookings
+    # raise
+    @parking = Parking.find(params[:id])
+    @bookings = @parking.bookings
+  end
+
   def index
     @parkings = Parking.all
   end
@@ -43,6 +49,7 @@ class ParkingsController < ApplicationController
     # raise
     @parking = Parking.find(params[:id])
     @parking.update(available: !@parking.available)
+    @parking.bookings.destroy_all
     redirect_to my_parkings_path
   end
 
