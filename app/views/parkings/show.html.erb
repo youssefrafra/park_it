@@ -2,7 +2,11 @@
         <%= link_to  "Back", parkings_path, class:"btn btn-dark mb-2 mt-2" %>
         <div class="card mb-3">
             <div style="width:100%">
-            <%= image_tag "parking-spot.jpg", alttext:"", class:"card-img-top" %>
+            <% if @parking.photo.attached? %>
+                <%= cl_image_tag @parking.photo.key, height: 300, width: 400, crop: :fill %>
+            <% else %>
+                <%= image_tag "parking-spot.jpg", alttext:"", class:"card-img-top" %>
+            <% end %>
             </div>
             <div class="card-body">
                 <h5 class="card-title"><%= @parking.title %></h5>

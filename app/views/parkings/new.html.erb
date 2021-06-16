@@ -1,1 +1,13 @@
-<%= render  "shared/form", parking: @parking %>
+<div class="container">
+    <%= simple_form_for @parking do |f| %>
+        <%= f.input :title%>
+        <%= f.input :address%>
+        <%= f.input :description%>
+        <%= f.input :start_date%>
+        <%= f.input :end_date%>
+        <%= f.input :from_hour%>
+        <%= f.input :to_hour%>
+        <%= f.input :photo, as: :file %>
+        <%= f.submit class:"btn btn-success"%>
+    <% end %>
+</div>
