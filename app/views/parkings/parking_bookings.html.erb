@@ -9,6 +9,7 @@
                 <div class="card-body">
                     <h5 class="card-title"><%= booking.parking.description %></h5>
                     <p class="card-text"><%= booking.parking.address %></p>
+                    <small><p class="card-text"><%= booking.parking.start_date %> - <%= booking.parking.end_date %></p></small>
                     <div class="d-flex justify-content-between">
                         <%if booking.status == "pending"%>
                             <%= link_to "Accept",accept_booking_path(booking),method: :patch, class:"btn btn-success" %>
