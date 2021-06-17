@@ -1,7 +1,7 @@
 <div class="container">
         <%= link_to  "Back", parkings_path, class:"btn btn-dark mb-2 mt-2" %>
-        <div class="d-flex">
-        <div class="flex-grow-1">
+        <div class="row justify-content-between">
+        <div class="col-8">
             <div clas="d-flex flex_column">
                 <div class="w-100" style="height:500px;">
                         <% if @parking.photo.attached? %>
@@ -34,7 +34,8 @@
             </div>
         </div>
             <div id="map"
-                style="height: 500px;  width: 500px;"
+                style="height: 500px"
+                class="col-4"
                 data-markers="<%= @marker.to_json %>"
                 data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>">
             </div>
