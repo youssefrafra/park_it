@@ -1,7 +1,15 @@
 // Import page-specific CSS files here.
 @import "home";
 
-.container-cards-map {
+.card {
+  
+}
+
+.photo {
+  background-size: cover;
+}
+
+.container {
   display: flex;
 }
 
@@ -10,14 +18,3 @@
   position: sticky;
   top: 0;
 }
-
-.row {
-  display: grid;
-  grid-template-columns: 3fr 3fr 3fr;
-  margin: -1px;
-}
-
-.col {
-  padding: -1px;
-}
-

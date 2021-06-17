@@ -13,7 +13,7 @@ class ParkingsController < ApplicationController
         lat: parking.latitude,
         lng: parking.longitude,
         info_window: render_to_string(partial: "info_window", locals: { parking: parking }),
-        image_url: helpers.asset_url(view_context.image_path 'cone')
+        image_url: helpers.asset_url(view_context.image_path 'parkit')
       }
     end
   end

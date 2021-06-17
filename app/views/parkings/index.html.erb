@@ -1,25 +1,26 @@
-<div class="main-container text-center">
+<div class="title text-center">
     <h1>All parkings</h1>
 </div>
-<div class="container-cards-map">
-    <div class="row">
-    <% @parkings.each do |parking| %>
-        <div class="col">
-            <div class="card shadow p-3 bg-white rounded mb-3">
+<div class="container">
+    <div class="card">
+        <% @parkings.each do |parking| %>
+            <div class="photo">
                 <% if parking.photo.attached? %>
-                    <%= cl_image_tag parking.photo.key, height: 400, class:"w-100", crop: :fill %>
+                    <%= cl_image_tag parking.photo.key, crop: :fill %>
                 <% else %>
-                    <%= image_tag "parking-spot.jpg", alttext:"", class:"card-img-top" %>
+                    <%= image_tag "parking-spot.jpg", class:"card-img-top" %>
                 <% end %>
+            </div>
                 <div class="card-body ">
-                    <h5 class="card-title"><%= parking.description %></h5>
-                    <p class="card-text"><%= parking.address %></p>
-                    <div class="d-flex justify-content-between">
+                    <div class="info-card">
+                        <h5><%= parking.description %></h5>
+                        <p><%= parking.address %></p>
+                        <p><%= parking.start_date %> - <%= parking.end_date %></p>
+                    </div>
+                    <div class="btn">
                         <%= link_to "Show more", parking_path(parking), class:"btn btn-primary" %>
                     </div>
                 </div>
-            </div>
-        </div>
     <% end %>
     </div>
     <div id="map"
