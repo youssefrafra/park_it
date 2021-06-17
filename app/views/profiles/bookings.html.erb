@@ -8,6 +8,7 @@
                 <div class="card-body">
                     <h5 class="card-title"><%= booking.parking.title %></h5>
                     <p class="card-text"><%= booking.parking.address %></p>
+                    <small><p class="card-text"><%= booking.start_date %> - <%= booking.end_date %></p></small>
                     <div class="d-flex justify-content-between">
                         <% if booking.status === "pending" %>
                             <%= button_to "Pending", "#", class:"btn btn-warning", disabled: true %>
