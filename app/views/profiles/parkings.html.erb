@@ -2,29 +2,45 @@
     <h1>My parkings</h1>
     <br/>
     <%= link_to  "Add parking", new_parking_path, class:"btn btn-success mb-3" %>
-    <div class="row">
+    
+    <div class="row justify-content-xs-center">
     <% @parkings.each do |parking| %>
-        <div class="col-6">
-            <div class="card mb-3">
+        <div class="col-xs-12 col-lg-4 align-self-stretch mb-3">
+            <div class="card h-100">
                 <% if parking.photo.attached? %>
-                    <%= cl_image_tag parking.photo.key, height: 300, width: 400, crop: :fill %>
+                    <%= cl_image_tag parking.photo.key, crop: :fill,class:"img-top" %>
                 <% else %>
-                    <%= image_tag "parking-spot.jpg", alttext:"", class:"card-img-top" %>
+                    <%= image_tag "parking-spot.jpg", alttext:"", class:"img-top" %>
                 <% end %>
                 <div class="card-body">
-                    <h5 class="card-title"><%= parking.description %></h5>
-                    <p class="card-text"><%= parking.address %></p>
-                    <div class="d-flex justify-content-between">
-                        <%= link_to "Show bookings", parking_bookings_parking_path(parking), class:"btn btn-primary" %>
-                        <% if parking.available %>
-                            <%= link_to "Pause", pause_parking_path(parking),method: :patch, class:"btn btn-success" %>
-                        <%else%>
-                            <%= link_to "Unpause", pause_parking_path(parking),method: :patch, class:"btn btn-dark" %>
-                        <%end%>
-                        <%= link_to "Edit", edit_parking_path(parking), class:"btn btn-info" %>
-                        <%= link_to "Delete", parking_path(parking), method: :delete,data: { confirm: "Are you sure you want to Delete ?"}, class:"btn btn-danger" %>
-                    </div>
+                    <h5 class="card-title"><%= parking.title %></h5>
+                    <p class="card-text" style="overflow:hidden;"><%= parking.description %></p>
                 </div>
+                <div class="d-flex justify-content-between p-3">
+                        <%= link_to parking_bookings_parking_path(parking) do %>
+                            <i class="fas fa-plus"></i>
+                            <small>Bookings</small>
+                            <% end %>
+                        <% if parking.available %>
+                            <%= link_to pause_parking_path(parking),method: :patch, style:"color:black;" do %>
+                                <i class="fas fa-pause"></i>
+                                <small>Pause</small>
+                            <% end %>
+                        <%else%>
+                            <%= link_to pause_parking_path(parking),method: :patch, style:"color:black;" do %>
+                                <i class="fas fa-play"></i>
+                                <small>Unpause</small>
+                            <% end %>
+                        <%end%>
+                        <%= link_to edit_parking_path(parking), style:"color:green;" do %>
+                            <i class="far fa-edit"></i>
+                            <small>Edit</small>
+                        <%end%>
+                        <%= link_to parking_path(parking), method: :delete,data: { confirm: "Are you sure you want to Delete ?"}, style:"color:red;" do %>
+                            <i class="far fa-trash-alt"></i>
+                            <small>Delete</small>
+                        <% end %>
+                    </div>
             </div>
         </div>
     <% end %>

@@ -4,7 +4,7 @@
             <div style="width:100%">
             <div class="card-img-top">
                 <% if @parking.photo.attached? %>
-                    <%= cl_image_tag @parking.photo.key, height: 400,crop: :fill, class:"w-100" %>
+                    <%= cl_image_tag @parking.photo.key, crop: :fill, class:"w-100 h-100" %>
                 <% else %>
                     <%= image_tag "parking-spot.jpg", alttext:"", class:"card-img-top" %>
                 <% end %>
