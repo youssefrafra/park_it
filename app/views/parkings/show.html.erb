@@ -1,24 +1,42 @@
 <div class="container">
         <%= link_to  "Back", parkings_path, class:"btn btn-dark mb-2 mt-2" %>
-        <div class="card mb-3">
-            <div style="width:100%">
-            <div class="card-img-top">
-                <% if @parking.photo.attached? %>
-                    <%= cl_image_tag @parking.photo.key, crop: :fill, class:"w-100 h-100" %>
-                <% else %>
-                    <%= image_tag "parking-spot.jpg", alttext:"", class:"card-img-top" %>
-                <% end %>
-            </div>
-            </div>
-            <div class="card-body">
-                <h5 class="card-title"><%= @parking.title %></h5>
-                <p class="card-text"><%= @parking.description%></p>
-                <div class="d-flex justify-content-between align-items-center">
-                    <small class="text-muted">Last updated <%= time_ago_in_words(@parking.created_at)%></small>
-                    <% if @parking.user != current_user %>
-                        <%= link_to "Book now", new_parking_booking_path(@parking),class:"btn btn-primary" %>
-                    <%end%>
+        <div class="d-flex">
+        <div class="flex-grow-1">
+            <div clas="d-flex flex_column">
+                <div class="w-100" style="height:500px;">
+                        <% if @parking.photo.attached? %>
+                            <%= cl_image_tag @parking.photo.key, crop: :fill, class:"img-top" %>
+                        <% else %>
+                            <%= image_tag "parking-spot.jpg", alttext:"", class:"img-top" %>
+                        <% end %>
                 </div>
+                <div class="card mb-3">
+                    <div class="card-body">
+                        <h5 class="card-title"><%= @parking.title %></h5>
+                        <p class="card-text"><%= @parking.description%></p>
+                        <div class="d-flex justify-content-between align-items-center">
+                            <div>
+                                <small class="text-muted">Posted by
+                                <% if @parking.user != current_user %>
+                                    <%= @parking.user.first_name %> <%= @parking.user.last_name %>
+                                <%else%>
+                                    you
+                                <% end %>
+                                </small><br/>
+                                <small class="text-muted">Last updated <%= time_ago_in_words(@parking.created_at)%></small>
+                            </div>
+                            <% if @parking.user != current_user %>
+                                <%= link_to "Book now", new_parking_booking_path(@parking),class:"btn btn-primary" %>
+                            <%end%>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+            <div id="map"
+                style="height: 500px;  width: 500px;"
+                data-markers="<%= @marker.to_json %>"
+                data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>">
             </div>
         </div>
 </div>

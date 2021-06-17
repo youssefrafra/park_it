@@ -1,17 +1,6 @@
 // Import page-specific CSS files here.
-@import "home";
-
-.card {
-  
-}
-
-.photo {
-  background-size: cover;
-}
-
-#map {
-  height: 100vh;
-  position: sticky;
-  top: 0;
-  width: 200% !important;
+.card-text{
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  overflow: hidden;
 }
