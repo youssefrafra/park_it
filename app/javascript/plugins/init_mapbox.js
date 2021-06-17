@@ -30,14 +30,14 @@ const fitMapToMarkers = (map, markers) => {
 const initMapbox = () => {
   const mapElement = document.getElementById('map');
   if (mapElement) {
-    map.addControl(new MapboxGeocoder({
-      accessToken: mapboxgl.accessToken, mapboxgl: mapboxgl
-    }));
     mapboxgl.accessToken = mapElement.dataset.mapboxApiKey;
     const map = new mapboxgl.Map({
       container: 'map',
       style: 'mapbox://styles/mapbox/streets-v10'
     });
+    map.addControl(new MapboxGeocoder({
+      accessToken: mapboxgl.accessToken, mapboxgl: mapboxgl
+    }));
 
     const markers = JSON.parse(mapElement.dataset.markers);
     addMarkersToMap(map, markers);

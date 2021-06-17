@@ -9,15 +9,5 @@
   height: 100vh;
   position: sticky;
   top: 0;
+  width: 200% !important;
 }
-
-.row {
-  display: grid;
-  grid-template-columns: 3fr 3fr 3fr;
-  margin: -1px;
-}
-
-.col {
-  padding: -1px;
-}
-
