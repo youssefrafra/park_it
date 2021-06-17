@@ -13,4 +13,13 @@ class Parking < ApplicationRecord
 
   geocoded_by :address
   after_validation :geocode, if: :will_save_change_to_address?
+
+  def is_available?(start_date, end_date)
+    range_user = Date.parse(start_date)..Date.parse(end_date)
+    self.bookings.each do |booking|
+      range_booking = booking.start_date..booking.end_date
+      return false if range_user.overlaps?(range_booking)
+    end
+    return true
+  end
 end
