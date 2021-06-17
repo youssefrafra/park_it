@@ -20,6 +20,13 @@ class ParkingsController < ApplicationController
 
   def show
     @parking = Parking.find(params[:id])
+    @parking.geocode
+    @marker = [{
+        lat: @parking.latitude,
+        lng: @parking.longitude,
+        info_window: render_to_string(partial: "info_window", locals: { parking: @parking }),
+        image_url: helpers.asset_url(view_context.image_path 'parkit')
+      }]
   end
 
   def new
