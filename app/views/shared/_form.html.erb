@@ -2,10 +2,10 @@
     <%= link_to  "Back", my_parkings_path, class:"btn btn-dark mb-2 mt-2" %>
     <%= simple_form_for parking do |f| %>
         <%= f.input :title%>
-        <%= f.input :address%>
+        <%= f.input :address, input_html: { id: "address-input", value:""}, placeholder: "Where is your parking?"%>
         <%= f.input :description%>
-        <%= f.input :start_date%>
-        <%= f.input :end_date%>
+        <%= f.input :start_date, as: :string, required: false, input_html: {class: "datepicker"} %>
+        <%= f.input :end_date, as: :string, required: false, input_html: {class: "datepicker"} %>
         <%= f.input :from_hour%>
         <%= f.input :to_hour%>
         <%= f.input :photo, as: :file %>

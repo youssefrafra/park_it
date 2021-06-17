@@ -1,5 +1,5 @@
 <div class="title text-center">
-    <h1><%= Parking.count %> parkings</h1>
+    <h1><%= @parkings.size %> parkings</h1>
 </div>
 <div class="d-flex">
   <div class="container-fluid pl-3" style="overflow:auto; height:100vh">
@@ -21,6 +21,7 @@
               <p class="card-text"><%= parking.description %></p>
               <small>Posted by <%= parking.user.first_name  %> <%= parking.user.last_name %></small><br/>
               <small><%= parking.start_date %> - <%= parking.end_date %></small><br/>
+              <small><%= parking.address%></small><br/>
               <small class="text-muted">Last updated <%= time_ago_in_words(parking.created_at)%></small>
             </div>
             <div class="d-flex justify-content-end p-2">
