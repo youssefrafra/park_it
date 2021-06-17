@@ -7,8 +7,22 @@ class ParkingsController < ApplicationController
   end
 
   def index
-    @parkings = Parking.all
-    @markers = @parkings.geocoded.map do |parking|
+    @search = params["search"]
+    
+    if @search.present?
+      @address = @search["address"]
+      @parkings = Parking.where("address ILIKE ?", "%#{@address}%")
+      @available_parkings = []
+      if @search[:starts_at].present?
+        @parkings_test.each do |parking|
+          @available_parkings << parking if parking.is_available?(@search[:starts_at], @search[:ends_at])
+          @parkings = @available_parkings
+        end
+      end
+    else
+      @parkings = Parking.all
+    end
+    @markers = @parkings.map do |parking|
       {
         lat: parking.latitude,
         lng: parking.longitude,

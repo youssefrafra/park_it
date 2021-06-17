@@ -3,24 +3,13 @@
     <h1>Welcome <%= current_user.first_name.capitalize if(user_signed_in?)%></h1>
   
     <div class="search-container d-flex justify-content-center">
-      <%= simple_form_for :search, :html => {:class => 'form-inline'}, method: "get", defaults: {label: false} do |f| %>
+      <%= simple_form_for :search, url: parkings_path, :html => {:class => 'form-inline'}, method: "get", defaults: {label: false} do |f| %>
       <%# <input type="search" id="address-input" placeholder="Where are we parking?" /> %>
-      <%= f.input :address_input, input_html: { id: "address-input"}, placeholder: "Where are we parking?"%>
+      <%= f.input :address, input_html: { id: "address-input", value:""}, placeholder: "Where are we parking?"%>
       <%= f.input :starts_at, as: :string, required: false, input_html: {class: "datepicker"} %>
       <%= f.input :ends_at, as: :string, required: false, input_html: {class: "datepicker"} %>
-      <%= f.submit class:"btn btn-success" %>
-      <%# <button class="btn btn-success" type="submit">Submit</button> %>
+      <%= f.submit class:"btn-search" %>
       <% end %>  
-        <%# <label class="text-white" for="start">Start date:</label>
-          <input type="date" id="start" name="trip-start"
-            value="2018-07-22"
-            min="2018-01-01" max="2018-12-31">
-            <input type="time" id="appt" name="appt"
-            min="00:00" max="12:00" required>
-          <input type="date" id="end" name="trip-end"
-            value="2018-07-22"
-            min="2018-01-01" max="2018-12-31">
-          <a class="btn btn-success" href="#">Apply now</a> %>
     </div>
 
     </div>
