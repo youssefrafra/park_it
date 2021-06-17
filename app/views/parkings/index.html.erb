@@ -1,27 +1,27 @@
-<div class="main-container text-center">
+<div class="title text-center">
     <h1>All parkings</h1>
 </div>
-<div class="container-cards-map">
-    <div class="row">
-    <% @parkings.each do |parking| %>
-        <div class="col-xs-12 col-lg-4 align-self-stretch mb-3">
-            <div class="card h-100">
+<div class="container">
+    <div class="card">
+        <% @parkings.each do |parking| %>
+            <div class="photo">
                 <% if parking.photo.attached? %>
-                    <%= cl_image_tag parking.photo.key,class:"img-top", crop: :fill %>
+                    <%= cl_image_tag parking.photo.key, crop: :fill %>
                 <% else %>
-                    <%= image_tag "parking-spot.jpg", alttext:"", class:"img-top" %>
+                    <%= image_tag "parking-spot.jpg", class:"card-img-top" %>
                 <% end %>
-                <div class="card-body">
-                    <h5 class="card-title"><%= parking.description %></h5>
-                    <p class="card-text"><%= parking.address %></p>
-                </div>
-                <div class="d-flex justify-content-between p-3">
-                        <%= link_to "Show more", parking_path(parking), class:"btn btn-primary" %>
-                </div>
             </div>
-        </div>
-    <% end %>
+                <div class="card-body ">
+                    <div class="info-card">
+                        <h5><%= parking.title %></h5>
+                        <p><%= parking.address %></p>
+                        <p><%= parking.start_date %> - <%= parking.end_date %></p>
+                    </div>
+                    <%= link_to "Show more", parking_path(parking), class:"btn btn-primary" %>
+                </div>
+        <% end %>
     </div>
+  </div>
     <div id="map"
         style="width: 150%; height: 600px;"
         data-markers="<%= @markers.to_json %>"
