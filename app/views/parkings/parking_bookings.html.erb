@@ -5,17 +5,22 @@
     <div class="row">
     <% @bookings.each do |booking| %>
         <div class="col-6">
-            <div class="card mb-3">
+            <div class="card mb-3 crd-booking">
                 <div class="card-body">
                     <h5 class="card-title"><%= booking.parking.description %></h5>
                     <p class="card-text"><%= booking.parking.address %></p>
                     <small><p class="card-text"><%= booking.parking.start_date %> - <%= booking.parking.end_date %></p></small>
+                    <small><p class="card-text">Posted by <%= booking.user.last_name %> <%= booking.user.first_name %></p></small>
+                    <br/>
                     <div class="d-flex justify-content-between">
                         <%if booking.status == "pending"%>
-                            <%= link_to "Accept",accept_booking_path(booking),method: :patch, class:"btn btn-success" %>
-                            <%= link_to "Refuse", "#", class:"btn btn-danger" %>
+                            <%= link_to "Accept", accept_booking_path(booking),method: :patch, class:"btn btn-success" %>
+                            <%= link_to "Refuse", decline_booking_path(booking),method: :patch, class:"btn btn-danger" %>
                         <% elsif booking.status == "accepted" %>
                             <%= button_to "Accepted","#", class:"btn btn-success", disabled: true %>
+                            <%= link_to "Cancel", booking_path(booking), method: :delete, data: { confirm: "Are you sure you want to Cancel ?"}, class:"btn btn-danger" %>
+                        <%else%>
+                            <%= button_to "Declined","#", class:"btn btn-warning", disabled: true %>
                             <%= link_to "Cancel", booking_path(booking), method: :delete, data: { confirm: "Are you sure you want to Cancel ?"}, class:"btn btn-danger" %>
                         <%end%>
                     </div>

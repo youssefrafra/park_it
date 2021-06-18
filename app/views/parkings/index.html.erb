@@ -6,26 +6,29 @@
     <div class="row flex-column">
       <% @parkings.each do |parking| %>
       <% if parking.available%>
-      <div class="card mb-3 w-100">
+      <div class="card mb-3 w-100 rnd">
+        <%= image_tag 'LogoParkit.png', class:"parkit-logo-index"%>
         <div class="row no-gutters">
           <div class="col-md-5">
                       <% if parking.photo.attached? %>
-                          <%= cl_image_tag parking.photo.key, crop: :fill , class:"img-top" %>
+                          <%= cl_image_tag parking.photo.key, crop: :fill , class:"img-top idx" %>
                       <% else %>
-                          <%= image_tag "parking-spot.jpg", class:"img-top" %>
+                          <%= image_tag "parking-spot.jpg", class:"img-top idx" %>
                       <% end %>
           </div>
           <div class="col-md-7">
             <div class="card-body">
-              <h5 class="card-title"><%= parking.title %></h5>
+              <h4 class="card-title"><%= parking.title %></h4>
               <p class="card-text"><%= parking.description %></p>
-              <small>Posted by <%= parking.user.first_name  %> <%= parking.user.last_name %></small><br/>
-              <small><%= parking.start_date %> - <%= parking.end_date %></small><br/>
-              <small><%= parking.address%></small><br/>
+              <small class="text-muted">Posted by <%= parking.user.first_name  %> <%= parking.user.last_name %></small><br/>
+              <small class="text-muted"><%= parking.start_date %> - <%= parking.end_date %></small><br/>
+              <small class="text-muted"><%= parking.address%></small><br/>
               <small class="text-muted">Last updated <%= time_ago_in_words(parking.created_at)%></small>
             </div>
             <div class="d-flex justify-content-end p-2">
-            <%= link_to "Show more", parking_path(parking), class:"btn btn-primary ml-2 mb-2" %>
+              <div>
+                <%= link_to "Show more", parking_path(parking), class:"btn" %>
+              </div>
             </div>
           </div>
         </div>

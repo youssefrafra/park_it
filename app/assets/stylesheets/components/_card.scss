@@ -1,0 +1,45 @@
+@import url('https://fonts.googleapis.com/css2?family=Lobster&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Benne&display=swap');
+
+.rnd{
+    position: relative;
+    border-radius: 20px;
+    border: #d3dbed solid 1px;
+    background-color: #f7f5f5;
+  }
+
+.rnd h4, .crd-parkings h4{
+  font-family: 'Lobster', cursive;
+}
+
+.rnd p {
+  font-family: 'Benne', serif;
+  font-size: 20px;
+}
+.parkit-logo-index{
+    position: absolute;
+    height: 80px;
+    width: 80px;
+    right: 0px;
+}
+
+.idx{
+    border-radius: 20px 5px 5px 20px;
+    border: #f7f5f5 solid 2px
+}
+
+.crd-parkings{
+  color: black;
+  border-radius: 20px;
+  background-color: #f7f5f5;
+  box-shadow: 4px 3px 0px 2px #D3DBED, 11px 8px 0px 2px #FCAC6C, 17px 15px 0px 2px #090605, 17px 15px 0px 2px #090605;
+}
+
+.prk{
+  border-radius: 20px 20px 5px 5px;
+  border: #f0f8ff solid 1px
+}
+
+.crd-booking{
+  box-shadow: 4px 3px 0px 2px #D3DBED, 11px 8px 0px 2px #FCAC6C, 17px 15px 0px 2px #090605, 17px 15px 0px 2px #090605;
+}
