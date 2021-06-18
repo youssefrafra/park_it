@@ -1,8 +1,7 @@
-<!DOCTYPE>
 <div class="container">
     <%= link_to  "Back", my_parkings_path, class:"btn btn-dark mb-2 mt-2" %>
-    <div class="form-inputs">
     <%= simple_form_for parking do |f| %>
+    <div class="form-inputs">
         <%= f.input :title%>
         <%= f.input :address, input_html: { id: "address-input", value:""}, placeholder: "Where is your parking?"%>
         <%= f.input :description%>
@@ -10,11 +9,10 @@
         <%= f.input :end_date, as: :string, required: false, input_html: {class: "datepicker"} %>
         <%= f.input :from_hour%>
         <%= f.input :to_hour%>
-        </div>
         <div class="form-actions">
-
         <%= f.input :photo, as: :file, input_html: { class: 'd-none' }, label_html: { class: 'upload-photo'}, label: '📷 Upload a photo' %>
         <%= f.submit class:"btn-body"%>
         </div>
+    </div>
     <% end %>
 </div>
