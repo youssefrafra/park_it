@@ -4,11 +4,13 @@
     <div class="row">
     <% @bookings.each do |booking| %>
         <div class="col-6">
-            <div class="card mb-3">
+            <div class="card mb-3 crd-booking">
                 <div class="card-body">
                     <h5 class="card-title"><%= booking.parking.title %></h5>
                     <p class="card-text"><%= booking.parking.address %></p>
                     <small><p class="card-text"><%= booking.start_date %> - <%= booking.end_date %></p></small>
+                    <small><p class="card-text">Posted by <%= booking.parking.user.last_name %> <%= booking.parking.user.first_name %></p></small>
+                    <br/>
                     <div class="d-flex justify-content-between">
                         <% if booking.status === "pending" %>
                             <%= button_to "Pending", "#", class:"btn btn-warning", disabled: true %>
