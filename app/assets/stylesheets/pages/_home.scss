@@ -1,17 +1,16 @@
 body{
-    background-color: #F7EFE0;
+    background-color: #F4F9F9;
 }
 
 
 .btn-search {
-    background: orange;
+  background-color: #FB743E;
   padding: 7px;
   text-decoration: none;
   color: white;
   border-radius: 5px;
     &:hover {
       opacity: 0.6;
-      color: white;
       text-decoration: none;
     }
   }
