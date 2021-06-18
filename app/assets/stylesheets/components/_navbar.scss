@@ -3,11 +3,7 @@
   justify-content: space-between;
   color: white;
   width: 100%;
-  background-image:
-    linear-gradient(
-      to bottom, 
-      #ee3915,#e0754e,#ee3915
-    );
+  background-color: #383E56;
 }
 
 .navbar-lewagon .navbar-collapse {
@@ -15,8 +11,9 @@
 }
 
 .navbar-lewagon .navbar-brand img {
-  width: 70px;
+  width: 80px;
   object-position: center;
+  margin: 0;
 }
 
 .navbar-light .navbar-nav .nav-link {
@@ -26,7 +23,9 @@
     }
 }
 
-.btn-add {
+.btn-nav {
   text-decoration: none;
   margin: 5px;
+  font-family: "Nunito", "Helvetica", "Sans-serif";
 }
+

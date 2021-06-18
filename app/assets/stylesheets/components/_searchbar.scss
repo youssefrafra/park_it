@@ -10,3 +10,16 @@
   margin: 8px;
   background-color: aliceblue;
 }
+
+.btn-search {
+  background-color: #FB743E;
+  padding: 9px;
+  text-decoration: none;
+  color: white;
+  border-radius: 5px;
+  border-color: transparent;
+  &:hover {
+    opacity: 0.6;
+    text-decoration: none;
+    }
+  }
