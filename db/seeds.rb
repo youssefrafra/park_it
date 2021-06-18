@@ -7,8 +7,8 @@
 #   Character.create(name: 'Luke', movie: movies.first)
 require 'open-uri'
 
-User.destroy_all if Rails.env.development?
-Parking.destroy_all if Rails.env.development?
+User.destroy_all 
+Parking.destroy_all
 
 user1 = User.create!(first_name: "Jean", last_name: "Labas", password: "azerty", email: "jean@email.com", phone_number: "06.06.06.06.06")
 user2 = User.create!(first_name: "Chris", last_name: "Ici", password: "azerty", email: "Chris@email.com", phone_number: "07.07.07.07.07")
