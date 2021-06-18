@@ -53,8 +53,10 @@ class ParkingsController < ApplicationController
     @parking.user = current_user
 
     if @parking.save!
+      # raise
       redirect_to my_parkings_path
     else
+      # raise
       render :new
     end
   end
