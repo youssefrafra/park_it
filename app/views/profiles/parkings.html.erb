@@ -9,7 +9,7 @@
                 <% if parking.photo.attached? %>
                     <%= cl_image_tag parking.photo.key, crop: :fill,class:"img-top prk" %>
                 <% else %>
-                    <%= image_tag "parking-spot.jpg", alttext:"", class:"img-top prk" %>
+                    <%= image_tag "https://source.unsplash.com/1600x900/?parking", alttext:"", class:"img-top prk" %>
                 <% end %>
                 <div class="card-body">
                     <h4 class="card-title"><%= parking.title %></h4>

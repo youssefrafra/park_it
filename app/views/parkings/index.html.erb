@@ -11,9 +11,10 @@
         <div class="row no-gutters">
           <div class="col-md-5">
                       <% if parking.photo.attached? %>
-                          <%= cl_image_tag parking.photo.key, crop: :fill , class:"img-top idx" %>
+                      <%= cl_image_tag parking.photo.key, :crop => "crop", class:"img-top idx" %>
+                          <%# <%= cl_image_path(parking.photo.key, crop: :fill , class:"img-top idx") %>
                       <% else %>
-                          <%= image_tag "parking-spot.jpg", class:"img-top idx" %>
+                          <%= image_tag "https://source.unsplash.com/1600x900/?parking", class:"img-top idx" %>
                       <% end %>
           </div>
           <div class="col-md-7">
