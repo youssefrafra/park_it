@@ -1,8 +1,7 @@
 <div class="container">
     <h1>My parkings</h1>
     <br/>
-    <%= link_to  "Add parking", new_parking_path, class:"btn btn-success mb-3" %>
-    
+        
     <div class="row justify-content-xs-center">
     <% @parkings.each do |parking| %>
         <div class="col-xs-12 col-lg-4 align-self-stretch mb-4">
