@@ -25,9 +25,9 @@
               <small class="text-muted"><%= parking.address%></small><br/>
               <small class="text-muted">Last updated <%= time_ago_in_words(parking.created_at)%></small>
             </div>
-            <div class="d-flex justify-content-end p-2">
+            <div class="d-flex justify-content-end p-2 mb-2">
               <div>
-                <%= link_to "Show more", parking_path(parking), class:"btn" %>
+                <%= link_to "Show more", parking_path(parking), class:"btn-nav" %>
               </div>
             </div>
           </div>

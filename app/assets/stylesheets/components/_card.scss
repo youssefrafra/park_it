@@ -9,17 +9,16 @@
   }
 
 .rnd h4, .crd-parkings h4{
-  font-family: 'Lobster', cursive;
+  font-weight: 600;
 }
 
 .rnd p {
-  font-family: 'Benne', serif;
   font-size: 20px;
 }
 .parkit-logo-index{
     position: absolute;
-    height: 80px;
-    width: 80px;
+    height: 60px;
+    width: 60px;
     right: 0px;
 }
 
@@ -32,7 +31,7 @@
   color: black;
   border-radius: 20px;
   background-color: #f7f5f5;
-  box-shadow: 4px 3px 0px 2px #D3DBED, 11px 8px 0px 2px #FCAC6C, 17px 15px 0px 2px #090605, 17px 15px 0px 2px #090605;
+  box-shadow: 4px 3px 0px 2px #D3DBED
 }
 
 .prk{
@@ -41,5 +40,5 @@
 }
 
 .crd-booking{
-  box-shadow: 4px 3px 0px 2px #D3DBED, 11px 8px 0px 2px #FCAC6C, 17px 15px 0px 2px #090605, 17px 15px 0px 2px #090605;
+  box-shadow: 4px 3px 0px 2px #D3DBED;
 }

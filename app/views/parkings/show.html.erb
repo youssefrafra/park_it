@@ -26,7 +26,7 @@
                                 <small class="text-muted">Last updated <%= time_ago_in_words(@parking.created_at)%></small>
                             </div>
                             <% if @parking.user != current_user %>
-                                <%= link_to "Book now", new_parking_booking_path(@parking),class:"btn btn-primary" %>
+                                <%= link_to "Book now", new_parking_booking_path(@parking),class:"btn-nav" %>
                             <%end%>
                         </div>
                     </div>
